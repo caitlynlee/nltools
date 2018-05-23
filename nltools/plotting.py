@@ -447,8 +447,8 @@ def plot_silhouette(distance, labels, ax=None, permutation_test=True,
     #Compute silhouette scores
     out = pd.DataFrame(columns=('Label','MeanWit','MeanBet','Sil'))
     for index in range(len(labels)):
-        label = labels.iloc[index]
-        sameIndices = [i for i,labelcur in enumerate(labels) if (labelcur==label) & (i!=index)]
+        label = labels.iloc[index][0]
+        sameIndices = [i for i,labelcur in enumerate(labels[0]) if (labelcur==label) & (i!=index)]
         within = distance.iloc[index,sameIndices].values.flatten()
         otherIndices = [i for i,labelcur in enumerate(labels) if (labelcur!=label)]
         between = distance.iloc[index,otherIndices].values.flatten()
