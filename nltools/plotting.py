@@ -471,6 +471,10 @@ def plot_silhouette(distance, labels, ax=None, permutation_test=True,
     x_lower = 10
     labelX = []
 
+
+
+
+
     for labelInd in range(n_clusters):
         label = labelSet[labelInd]
         ith_cluster_silhouette_values = sample_silhouette_values[sample_silhouette_values.Label == label]['Sil']
