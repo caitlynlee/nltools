@@ -461,8 +461,6 @@ def plot_silhouette(distance, labels, ax=None, permutation_test=True,
         out_tmp['Sil'] = silhouetteScore
         out = out.append(out_tmp)
     sample_silhouette_values = out[['Label','Sil']]
-    print sample_silhouette_values
-
 
     #Plot
     with sns.axes_style("white"):
