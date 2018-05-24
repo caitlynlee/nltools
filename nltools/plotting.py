@@ -473,7 +473,7 @@ def plot_silhouette(distance, labels, ax=None, permutation_test=True,
 
     for labelInd in range(n_clusters):
         label = labelSet[labelInd]
-        ith_cluster_silhouette_values = sample_silhouette_values[sample_silhouette_values.Label == label]['Sil'].copy()
+        ith_cluster_silhouette_values = sample_silhouette_values[labels == label]['Sil'].copy()
         ith_cluster_silhouette_values.sort_values(inplace=True)
         size_cluster_i = ith_cluster_silhouette_values.shape[0]
         x_upper = x_lower + size_cluster_i
