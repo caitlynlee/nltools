@@ -460,7 +460,7 @@ def plot_silhouette(distance, labels, ax=None, permutation_test=True,
         out_tmp['MeanBet'] = np.mean(between)
         out_tmp['Sil'] = silhouetteScore
         out = out.append(out_tmp)
-    sample_silhouette_values = out['Sil']
+    sample_silhouette_values = list(out['Sil'])
 
     #Plot
     with sns.axes_style("white"):
@@ -470,6 +470,7 @@ def plot_silhouette(distance, labels, ax=None, permutation_test=True,
             f = plt.plot(figsize = figsize)
     x_lower = 10
     labelX = []
+
     for labelInd in range(n_clusters):
         label = labelSet[labelInd]
         ith_cluster_silhouette_values = sample_silhouette_values[labels == label]
