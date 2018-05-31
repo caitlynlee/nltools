@@ -498,7 +498,8 @@ def plot_silhouette(distance, labels, ax=None, permutation_test=True,
         for labelInd in range(n_clusters):
             temp = pd.DataFrame(columns=outAll.columns)
             label = labelSet[labelInd]
-            data = sample_silhouette_values[labels == label]
+            data = sample_silhouette_values[sample_silhouette_values.Label == label]
+            
             temp.loc[labelInd,'label'] = label
             temp.loc[labelInd,'mean'] = np.mean(data)
             if np.mean(data)>0: #Only test positive mean silhouette scores
