@@ -501,7 +501,7 @@ def plot_silhouette(distance, labels, ax=None, permutation_test=True,
             data = sample_silhouette_values[sample_silhouette_values.Label == label]
             print data
             temp.loc[labelInd,'label'] = label
-            temp.loc[labelInd,'mean'] = np.mean(data['Sil'])
+            temp.loc[labelInd,'mean'] = np.mean(data['Sil'].values)
             if np.mean(data)>0: #Only test positive mean silhouette scores
                 statsout = one_sample_permutation(data, n_permute = n_permute)
                 temp['p'] = statsout['p']
