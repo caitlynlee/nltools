@@ -413,7 +413,7 @@ def plot_between_label_distance(distance, labels, ax=None, permutation_test=True
         return (f, out, within_dist_out)
 
 def plot_silhouette(distance, labels, ax=None, permutation_test=True,
-                    n_permute=5000, colors=None, **kwargs):
+                    n_permute=5000, colors=None, figsize=None):
 
     ''' Create a silhouette plot indicating between relative to within label distance
 
@@ -441,7 +441,7 @@ def plot_silhouette(distance, labels, ax=None, permutation_test=True,
     #Set defaults for plot design
     if colors is None:
         colors = sns.color_palette("hls", n_clusters)
-    if 'figsize' not in kwargs.keys():
+    if figsize is None:
         figsize = (6,4)
 
     #Compute silhouette scores
