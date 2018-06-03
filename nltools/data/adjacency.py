@@ -643,9 +643,12 @@ class Adjacency(object):
             if len(labels) != distance.shape[0]:
                 raise ValueError('Labels must be same length as distance matrix')
 
+        if 'colors' not in kwargs.keys():
+            colors = sns.color_palette("hls", n_clusters)
+            
         (f, outAll) = plot_silhouette(distance, labels, ax=None,
                                       permutation_test=True,
-                                      n_permute=5000, **kwargs)
+                                      n_permute=5000, colors=colors, **kwargs)
         return (f,outAll)
 
     def bootstrap(self, function, n_samples=5000, save_weights=False,
