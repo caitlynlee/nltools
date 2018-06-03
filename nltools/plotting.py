@@ -442,6 +442,7 @@ def plot_silhouette(distance, labels, ax=None, permutation_test=True,
     if 'colors' not in kwargs.keys():
         print "using default colors"
         colors = sns.color_palette("hls", n_clusters)
+    else: print colors
     if 'figsize' not in kwargs.keys():
         figsize = (6,4)
 
