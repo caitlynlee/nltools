@@ -633,7 +633,7 @@ class Adjacency(object):
         return stats
 
     def plot_silhouette(self, labels=None, ax=None, permutation_test=True,
-                        n_permute=5000, **kwargs):
+                        n_permute=5000, colors=None, **kwargs):
         '''Create a silhouette plot'''
         distance = pd.DataFrame(self.squareform())
 
@@ -643,9 +643,9 @@ class Adjacency(object):
             if len(labels) != distance.shape[0]:
                 raise ValueError('Labels must be same length as distance matrix')
 
-        if 'colors' not in kwargs.keys():
+        if colors is None:
             colors = sns.color_palette("hls", n_clusters)
-            
+
         (f, outAll) = plot_silhouette(distance, labels, ax=None,
                                       permutation_test=True,
                                       n_permute=5000, colors=colors, **kwargs)
